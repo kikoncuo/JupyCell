@@ -1,6 +1,7 @@
 # JupyCell 
 
-**JupyCell**  is a powerful and intuitive API that bridges the gap between your applications and Jupyter Notebook kernels. Whether you're building interactive data applications, integrating Python execution into your services, or simply automating your data workflows, JupyCell provides a seamless way to manage and execute code cells just like in a Jupyter Notebook.
+**JupyCell**  is a secure API that connects applications to Jupyter Notebook kernels within sandboxed environments. Essential for Large Language Models (LLMs) executing code, it ensures safe and isolated code execution. Designed for extensibility and flexibility, JupyCell enables developers to collaborate seamlessly with LLMs, managing and running code cells efficiently and securely.
+
 The name "JupyCell" is a playful blend of "Jupyter" and "Cell," capturing its core functionality. Additionally, it echoes the Spanish exclamation "¡Yupi!"—a joyful expression of happiness, reflecting the ease and delight JupyCell brings to your development experience.
 
 ## Table of Contents 
@@ -407,6 +408,8 @@ pytest -v test_main.py
 
 ### Test Suite Overview 
 
+For some reason tests fail inconsistently if ran at the same time, need to investigate further.
+
 The test suite covers the following functionalities:
  
 - **Kernel Management** :
@@ -432,8 +435,6 @@ The test suite covers the following functionalities:
 - **Complex Scenarios** :
   - Managing dependent cells and ensuring edits propagate correctly.
 
-### Example Test Output 
-Upon running `pytest`, you should see an output similar to:
 
 ## Examples 
 
