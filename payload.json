@@ -1,0 +1,4 @@
+{
+  "kernel_id": 140084201602400, 
+  "code": "import matplotlib.pyplot as plt\nplt.plot([1,2,3],[4,5,6])\nplt.show()"
+}
