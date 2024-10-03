@@ -1,10 +1,8 @@
-# main.py
 from fastapi import FastAPI
 from pydantic import BaseModel
 from jupyter_client import KernelManager
 import asyncio
 from typing import Optional
-
 
 app = FastAPI()
 kernels = {}
@@ -27,7 +25,6 @@ async def start_kernel():
 
 @app.post("/cell")
 async def cell_operations(request: CodeExecutionRequest):
-    print(request)
     kernel_data = kernels.get(request.kernel_id)
     if not kernel_data:
         return {"error": "Kernel not found"}
@@ -76,24 +73,34 @@ async def cell_operations(request: CodeExecutionRequest):
 
 async def run_cell(kc, cells, cell_number):
     code = cells[cell_number]['code']
-    await asyncio.to_thread(kc.execute, code)
+
+    # Ensure the kernel is ready by waiting for its "idle" state
+    while True:
+        try:
+            msg = await asyncio.to_thread(kc.get_iopub_msg, timeout=1)
+            if msg['header']['msg_type'] == 'status' and msg['content']['execution_state'] == 'idle':
+                break  # The kernel is ready
+        except Exception:
+            break
+    
+    # Execute the cell code 
+    msg_id = await asyncio.to_thread(kc.execute, code)
     outputs = []
 
-    def get_messages():
-        while True:
-            try:
-                msg = kc.get_iopub_msg(timeout=1)
-                msg_type = msg['header']['msg_type']
-                if msg_type == 'status' and msg['content']['execution_state'] == 'idle':
-                    break
-                elif msg_type in ('execute_result', 'display_data', 'stream', 'error'):
-                    outputs.append(msg['content'])
-            except Exception:
-                break
+    while True:
+        try:
+            msg = await asyncio.to_thread(kc.get_iopub_msg, timeout=1)
+            msg_type = msg['header']['msg_type']
 
-    await asyncio.to_thread(get_messages)
+            if msg_type == 'status':
+                if msg['content']['execution_state'] == 'idle':
+                    break  # Execution is complete
+            elif msg_type in ('execute_result', 'display_data', 'stream', 'error'):
+                outputs.append(msg['content'])
+        except Exception:
+            break
+
     cells[cell_number]['outputs'] = outputs
-    print(outputs)
     return {"outputs": outputs}
 
 async def run_all_cells(kc, cells):
