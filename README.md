@@ -6,48 +6,50 @@ The name "JupyCell" is a playful blend of "Jupyter" and "Cell," capturing its co
 
 ## Table of Contents 
  
-- [Features](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#features)
+- [Features](#features)
  
-- [Getting Started](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#getting-started)  
-  - [Using Docker](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#using-docker)
+- [Getting Started](#getting-started)  
+  - [Using Docker](#using-docker)
  
-  - [Developer Setup](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#developer-setup)  
-    - [Prerequisites](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#prerequisites)
+  - [Developer Setup](#developer-setup)  
+    - [Prerequisites](#prerequisites)
  
-    - [Installation](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#installation)
+    - [Installation](#installation)
  
-- [Usage](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#usage)  
-  - [Starting the Server](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#starting-the-server)
+- [Usage](#usage)  
+  - [Starting the Server](#starting-the-server)
+
+  - [Starting the Server](#starting-the-server)
  
-  - [API Endpoints](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#api-endpoints)  
-    - [Start a Kernel](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#start-a-kernel)
+  - [API Endpoints](#api-endpoints)  
+    - [Start a Kernel](#start-a-kernel)
  
-    - [Manage Cells](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#manage-cells)  
-      - [Add a Cell](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#add-a-cell)
+    - [Manage Cells](#manage-cells)  
+      - [Add a Cell](#add-a-cell)
  
-      - [Edit a Cell](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#edit-a-cell)
+      - [Edit a Cell](#edit-a-cell)
  
-      - [Run a Cell](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#run-a-cell)
+      - [Run a Cell](#run-a-cell)
  
-      - [Run All Cells](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#run-all-cells)
+      - [Run All Cells](#run-all-cells)
  
-      - [Delete a Cell](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#delete-a-cell)
+      - [Delete a Cell](#delete-a-cell)
  
-    - [Retrieve Cell Outputs](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#retrieve-cell-outputs)
+    - [Retrieve Cell Outputs](#retrieve-cell-outputs)
  
-- [Testing](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#testing)  
-  - [Running Tests](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#running-tests)
+- [Testing](#testing)  
+  - [Running Tests](#running-tests)
  
-- [Examples](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#examples)  
-  - [Adding and Running Cells](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#adding-and-running-cells)
+- [Examples](#examples)  
+  - [Adding and Running Cells](#adding-and-running-cells)
  
-  - [Editing Cells and Running All Cells](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#editing-cells-and-running-all-cells)
+  - [Editing Cells and Running All Cells](#editing-cells-and-running-all-cells)
  
-- [Contributing](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#contributing)
+- [Contributing](#contributing)
  
 - [License]()
  
-- [Acknowledgements](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#acknowledgements)
+- [Acknowledgements](#acknowledgements)
 
 ## Features 
  
@@ -193,8 +195,11 @@ ipykernel==6.20.0
 
 ### Starting the Server 
 
+#### Adding dependencies for your kernel
+If you want to add dependencies to your kernel, you can do so by adding a `requirements_app.txt` file in the root directory of the project. The `requirements_app.txt` file should contain the dependencies you want to install before compiling the docker container. When you start a new kernel, the dependencies will be installed automatically.
+
 #### Using Docker 
-If you followed the Docker setup, your server should already be running. If not, refer to the [Using Docker](https://chatgpt.com/c/66fa69e4-9a44-800c-bcb3-9ef8426c228d#using-docker)  section.
+If you followed the Docker setup, your server should already be running. If not, refer to the [Using Docker](#using-docker)  section.
 #### Using Virtual Environment 
 
 If you set up the developer environment:
