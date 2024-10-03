@@ -89,7 +89,7 @@ async def run_cell(kc, cells, cell_number):
 
     while True:
         try:
-            msg = await asyncio.to_thread(kc.get_iopub_msg, timeout=1)
+            msg = await asyncio.to_thread(kc.get_iopub_msg, timeout=30)
             msg_type = msg['header']['msg_type']
 
             if msg_type == 'status':
