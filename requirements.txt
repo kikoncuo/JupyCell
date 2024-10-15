@@ -3,3 +3,8 @@ uvicorn[standard]
 jupyter_client
 ipykernel
 requests
+pandas
+matplotlib
+seaborn
+scipy
+scikit-learn
